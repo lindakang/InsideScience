@@ -460,7 +460,7 @@
                         <a class="nav-link" onclick="showPage('biotech-companies')">Biotech/Pharma Company</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" onclick="showPage('Experiment')">Wet Lab</a>
+                        <a class="nav-link" onclick="showPage('wetlab')">Wet Lab</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" onclick="showPage('life-chat')">Random Thoughts</a>
@@ -529,15 +529,15 @@
                 </div>
             </div>
 
-            <div class="page" id="wetlab">
-                <header class="page-header">
-                    <h1 class="page-title">Wet Lab</h1>
-                    <p class="page-description">Sharing of something happened in the lab </p>
-                </header>
-                <div class="article-grid" id="wetlab-articles">
-                    <div class="loading">載入中...</div>
-                </div>
-            </div>
+<div id="wetlab" class="page">
+    <header class="page-header">
+        <h1 class="page-title">Wet Lab</h1>
+        <p class="page-description">Sharing of something happened in the lab</p>
+    </header>
+    <div class="article-grid" id="wetlab-articles">
+        <div class="loading">Loading...</div>
+    </div>
+</div>
 
             <div class="page" id="life-chat">
                 <header class="page-header">
@@ -745,17 +745,17 @@
             }
         }
 
-        function getCategoryDisplayName(category) {
-            const names = {
-                'research': 'Fun Research',
-                'industry-news': 'Industry News',
-                'biotech-companies': 'Biotech / Pharma',
-                'wetlab': 'Wet Lab',
-                'life-chat': 'Random Thoughts',
-                'data-analysis': 'Data Analysis'
-            };
-            return names[category] || category;
-        }
+function getCategoryDisplayName(category) {
+    const names = {
+        'research': 'Fun Research',
+        'industry-news': 'Industry News',
+        'biotech-companies': 'Biotech / Pharma',
+        'wetlab': 'Wet Lab',              // <--- 新增這一行
+        'life-chat': 'Random Thoughts',
+        'data-analysis': 'Data Analysis'
+    };
+    return names[category] || category;
+}
 
         document.addEventListener('DOMContentLoaded', async function() {
             await loadPostsRegistry();
