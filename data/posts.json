@@ -11,8 +11,9 @@
       "filename": "2025-03-27-korean-microsushi.html"
     }
   ],
-  "industry-news": [
-    {
+  "industry-news": [  ],
+  "biotech-companies": [
+        {
         "id": "2025-12-14-PeptiDream",
         "title": "PeptiDream: The Pioneer of Macrocyclic Peptide Discovery",
         "date": "2025-12-14",
@@ -23,7 +24,6 @@
         "filename": "2025-12-14-PeptiDream.html" 
     }
   ],
-  "biotech-companies": [],
   "career": [],
   "life-chat": [],
   "data-analysis": [
