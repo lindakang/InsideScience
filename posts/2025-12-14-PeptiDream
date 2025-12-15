@@ -1,0 +1,60 @@
+<p>PeptiDream is a Japanese biotechnology company founded in Tokyo in 2006 as a spin-off from the University of Tokyo. One of the co-founders is Professor Hiroaki Suga, who is affiliated with the University of Tokyo. He earned his Ph.D. in chemistry from MIT and later became a professor at the University of Tokyo. His expertise lies in biochemistry, with a specialization in peptide synthesis, which is also the foundation of PeptiDream’s core technology — RaPID.</p>
+
+<h3>RaPID (Random Peptide Integrated Discovery)</h3>
+<p>The natural biosynthetic apparatus in living organisms synthesizes peptides using the 20 canonical amino acids. However, RaPID utilizes an artificial RNA catalyst, known as Flexizyme, to incorporate non-natural amino acids, enabling the synthesis of unique peptides and the generation of macrocyclic peptides, which significantly enhance peptide diversity.</p>
+<p>In addition to the 20 L-amino acids, there are numerous non-canonical amino acids, including D-amino acids and post-translationally modified (PTM) amino acids, such as those that undergo hydroxylation, methylation, and lipidation. Furthermore, amino acids can also be chemically synthesized.</p>
+<p>In the conventional translation system, each codon corresponds to a specific amino acid; however, multiple codons can encode the same amino acid. Although there are other natural amino acids, the existing codons are fully utilized, and the genetic code does not accommodate additional natural amino acids or post-translational modifications (PTMs). Post-translationally modified amino acids cannot be incorporated due to size incompatibility.</p>
+<p>Hiroaki Suga’s RaPID technology reprograms the translation system by reallocating certain codons for the incorporation of specialized amino acids. For example, the codons CGU, CGC, CGA, and CGG all encode arginine. RaPID technology can assign two of these codons to specialized amino acids, utilizing Flexizyme to incorporate these amino acids into peptides and generate macrocyclic peptides.</p>
+
+<h3>PeptiDream’s macrocyclic peptides and PDPS</h3>
+<p>PeptiDream specializes in peptide technology similar to antibody-drug conjugates (ADCs); however, their peptide-drug conjugates (PDCs) involve the conjugation of drugs to peptides.</p>
+<p>Compared to antibodies, peptides are smaller and can penetrate tissues more effectively. However, they face limitations in stability, pharmacokinetics, and oral bioavailability. To overcome these challenges, next-generation PDCs focus on macrocyclic peptides, composed of fewer than 20 amino acids, to maintain stability in the bloodstream for over 24 hours. These macrocyclic peptides exhibit superior stability, activity, and in vivo effects compared to their linear counterparts. Additionally, they incorporate non-natural amino acids beyond the 20 canonical amino acids to tailor the properties of macrocyclic peptides as needed.</p>
+<p>Their primary drug development technology is the Peptide Discovery Platform System (PDPS), with RaPID as its core technology. This system randomly generates unique peptides using more than 3,000 distinct amino acids. The resulting database contains over ten trillion macrocyclic peptides, from which high-affinity and high-specificity macrocyclic peptides can be rapidly identified with a success rate of over 95%.</p>
+
+<h3>PeptiDream’s three Drug Development Strategies</h3>
+<p>PeptiDream’s strategies are similar to those for antibodies — using macrocyclic peptides to attach drugs or radioisotopes or connecting multiple macrocyclic peptides for increased specificity.</p>
+<ul>
+    <li><strong>Small molecules & macrocyclic peptides:</strong> Offer the advantages of small size while maintaining affinity and specificity comparable to that of antibodies.</li>
+    <li><strong>PDCs:</strong> Deliver chemotherapeutic drugs (cytotoxic PDCs), radioisotopes (RI-PDCs), and oligonucleotides (oligonucleotide PDCs). They possess the advantages of antibodies while being smaller in size and offering improved tissue penetration.</li>
+    <li><strong>MPC (multi-functional peptide conjugate):</strong> Similar to multi-specific antibodies, MPCs target various proteins using several macrocyclic peptides.</li>
+</ul>
+
+<div class="image-container">
+    <img src="assets/images/peptidream-strategy.png" alt="PeptiDream Development Strategies">
+    <p class="image-caption">Figure／PeptiDream official site</p>
+</div>
+
+<h3>PeptiDream’s Collaborators</h3>
+<p>Currently, half of PeptiDream’s drug development efforts are focused on cancer-targeting radioisotope peptides (RI-PDCs). Many pharmaceutical companies recognize the potential in this area, with partners including Novartis, Merck, Bristol Myers Squibb (BMS), Eli Lilly, and RayzeBio.</p>
+
+<p><strong>Novartis:</strong> Their collaboration began in 2010 and has expanded over time. In 2019, they initiated work on RI-PDCs by linking radionuclides with peptides. In 2024, Novartis invested $180 million into their radioligand program, and they are currently collaborating on three drugs, including one targeting malignant glioma (177Lu/68Ga-Integrin FF58), which is now in Phase I clinical trials.</p>
+
+<p><strong>RayzeBio & BMS:</strong> Their partnership with RayzeBio began in 2020. RayzeBio specializes in radioisotope drugs that utilize actinium-225 (Act-225). Two collaborative drugs are currently under development; one specifically targets hepatocellular carcinoma (225Ac/68Ga-GPC3 RYZ801/811). In February 2024, RayzeBio was acquired by Bristol-Myers Squibb (BMS). PeptiDream’s collaboration with BMS began in 2010, utilizing its PDPS platform to develop PD-L1 inhibitors. Although Phase I clinical trials have been completed, they are currently on hold due to commercial considerations. Another collaboration involves an 18F-PD-L1 (BMS-986229) radioisotope-based cancer diagnostic, which has also completed Phase I trials.</p>
+
+<p><strong>LinqMed:</strong> This partnership focuses on a treatment for malignant brain tumours (64Cu-ATSM), which is now in Phase III clinical trials. Its Phase I trials included patients with various types of brain tumours, resulting in an average survival of 29.4 months, with 66.7% of patients surviving beyond one year. Notably, glioblastoma patients exhibited a one-year survival rate of 55.6%, compared to typical rates of 30–40%.</p>
+
+<p><strong>Eli Lilly:</strong> A long-term partner since 2013. Their diagnostic medicine, 18F-flortaucipir (Tauvid®), received FDA approval in 2020 for detecting tau neurofibrillary tangles (NFTs) through PET imaging.</p>
+
+<p>In addition to these collaborative efforts, PeptiDream is independently developing treatments such as the renal cell carcinoma-targeting 225Ac/64Cu-CA9 (PD-32766) and a myostatin inhibitor for obesity and muscle diseases, both of which remain in the development phase.</p>
+
+<h3>PeptiDream’s Subsidiary</h3>
+<p>Additionally, PeptiDream has a subsidiary, <strong>PeptiGrowth</strong>, specializing in growth factors and cytokines. This subsidiary was founded in partnership with Mitsubishi Corporation, with ownership shares of 39.5% and 60.5%, respectively. PeptiGrowth was established in response to the growing demand for gene and cell therapies, which require substantial amounts of growth factors for cell cultivation. Currently, growth factors are produced either through extraction from animal serum or via genetic engineering, both of which pose risks of contamination or incur high costs, respectively.</p>
+<p>The PDPS platform offers significant advantages by reducing both contamination risks and production costs. Moreover, PDPS is also applicable in the cultured meat market by providing growth factors for meat cultivation, aligning with ESG sustainability trends focused on reducing carbon footprints.</p>
+
+<hr>
+
+<h3>Personal Opinion</h3>
+<p>Personally, I believe that despite stability issues, peptides can achieve affinity and specificity comparable to antibodies while offering the advantage of a smaller size. This size advantage is further enhanced by improvements in the stability of macrocyclic peptides, making them preferable to IgG and VHH antibodies due to their lower immunogenicity, reduced cost, and fewer concerns about contamination and endotoxins associated with cell-based production. If the efficacy and stability of macrocyclic peptides can match those of antibodies, pursuing peptide development seems to be a more cost-effective option overall! XD</p>
+
+<h3>References</h3>
+<ul>
+    <li>PeptiDream Official site</li>
+    <li>PeptiGrowth Official site</li>
+    <li>J-Stage | RaPID システムが拓く新創薬戦略</li>
+    <li>CREST | 平成24年度採択 菅裕明</li>
+    <li>WO2016154675A1 — Platform for non-natural amino acid incorporation into proteins</li>
+    <li>US9701993B2 — Artificial translation/synthesis system</li>
+    <li>RayzeBio | PeptiDream Announces Strategic Partnership with RayzeBio for the Discovery and Development of Peptide-Radiotherapeutics — RayzeBio</li>
+    <li>bussinesswire | PeptiDream Announces Collaboration and License Agreement with Lilly to Discover Macrocyclic Peptide Drug Candidates</li>
+    <li>Fierce Biotech | Novartis pays PeptiDream $180M as radiopharma big bang continues</li>
+</ul>
