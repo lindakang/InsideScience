@@ -45,7 +45,7 @@
       "tags": ["YouTube", "R", "data analysis"],
       "summary": "使用 R 語言分析美國 YouTube 發燒影片的數據，探討影片的觀看次數、喜歡、不喜歡和評論數之間的關係，以及哪些頻道的影片最常登上發燒列表。",
       "readTime": "10 min read",
-      "filename": "2022-10-16-yt-us-trending.html"
+      "filename": "2022-10-16-YT-US-trending.html"
     },
     {
       "id": "2022-10-20-yt-ca-trending",
