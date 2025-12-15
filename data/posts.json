@@ -11,7 +11,18 @@
       "filename": "2025-03-27-korean-microsushi.html"
     }
   ],
-  "industry-news": [],
+  "industry-news": [
+    {
+        "id": "2025-12-14-PeptiDream",
+        "title": "PeptiDream: The Pioneer of Macrocyclic Peptide Discovery",
+        "date": "2025-12-14",
+        "category": "biotech-companies",
+        "tags": ["Japan Biotech", "Peptidream", "Macrocyclic Peptides", "Oncology"],
+        "summary": "PeptiDream is a Japanese biotech company famous for its RaPID platform. They specialize in macrocyclic peptides to target proteins that are difficult for traditional antibodies or small molecules.",
+        "readTime": "10 min read",
+        "filename": "2025-12-14-PeptiDream.html" 
+    }
+  ],
   "biotech-companies": [],
   "career": [],
   "life-chat": [],
