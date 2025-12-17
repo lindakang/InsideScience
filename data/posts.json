@@ -60,23 +60,23 @@
     },
     {
       "id": "2022-10-16-yt-us-trending",
-      "title": "US YouTube Trending Analysis",
+      "title": "YouTube trending video data (1) - US",
       "date": "2022-10-16",
       "category": "data-analysis",
-      "tags": ["YouTube", "R", "data analysis"],
-      "summary": "使用 R 語言分析美國 YouTube 發燒影片的數據，探討影片的觀看次數、喜歡、不喜歡和評論數之間的關係，以及哪些頻道的影片最常登上發燒列表。",
+      "tags": ["YouTube", "R", "Kaggle", "Data Analysis"],
+      "summary": "Analyzing trending YouTube videos in the US from 2020-2022 using R. Investigating top channels, categories, and revenue estimates.",",
       "readTime": "10 min read",
       "filename": "2022-10-16-YT-US-trending.html"
     },
-    {
-      "id": "2022-10-20-yt-ca-trending",
-      "title": "Canada YouTube Trending Analysis",
-      "date": "2022-10-20",
-      "category": "data-analysis",
-      "tags": ["YouTube", "R", "data analysis"],
-      "summary": "使用 R 語言分析加拿大 YouTube 發燒影片的數據，並與美國的數據進行比較，找出兩個國家在影片趨勢上的相似與不同之處。",
-      "readTime": "12 min read",
-      "filename": "2022-10-20-yt-ca-trending.html"
-    }
+{
+        "id": "2022-10-20-yt-ca-trending",
+        "title": "YouTube trending video data (1) - Canada",
+        "date": "2022-10-20",
+        "category": "data-analysis",
+        "tags": ["YouTube", "R", "Kaggle", "Data Analysis"],
+        "summary": "Following the US analysis, this post explores YouTube trending videos in Canada from 2020 to 2022, analyzing popular categories, channels, and estimated ad revenue.",
+        "readTime": "10 min read",
+        "filename": "2022-10-20-YT-CA-trending.html"
+}
   ]
 }
