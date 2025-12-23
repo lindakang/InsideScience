@@ -808,6 +808,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         function loadArticlesForCategory(category) {
             const articles = postsRegistry[category] || [];
+            articles.sort((a, b) => new Date(b.date) - new Date(a.date));
             const containerId = `${category}-articles`;
             const container = document.getElementById(containerId);
             
@@ -984,10 +985,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 const titleMatch = article.title.toLowerCase().includes(query);
                 const summaryMatch = article.summary.toLowerCase().includes(query);
                 // 檢查是否有任何一個 tag 符合
-                const tagsMatch = article.tags.some(tag => tag.toLowerCase().includes(query));
-                
+                const tagsMatch = article.tags.some(tag => tag.toLowerCase().includes(query));                
                 return titleMatch || summaryMatch || tagsMatch;
             });
+            results.sort((a, b) => new Date(b.date) - new Date(a.date));
 
             // 4. 更新狀態文字
             const statusText = document.getElementById('search-status');
