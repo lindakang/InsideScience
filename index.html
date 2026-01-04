@@ -861,7 +861,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             currentArticleIndex = categoryArticles.indexOf(article);
             
             showPage('article-view');
-            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
             document.getElementById('article-title').textContent = article.title;
             document.getElementById('article-meta').innerHTML = `
                 <span>${article.date}</span>
