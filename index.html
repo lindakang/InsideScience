@@ -835,6 +835,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         }
 
         async function loadArticle(articleId) {
+            // --- 【步驟 2 新增】：改變上方網址，讓它可以被複製分享 ---
+            window.history.pushState({ id: articleId }, "", "?post=" + articleId);
+            
             let article = null;
             let categoryArticles = [];
             
@@ -913,6 +916,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         }
 
         function goBackToCategory() {
+            // 回到分類列表時，也要把網址上的 ?post=xxx 清除掉
+            window.history.pushState({}, "", window.location.pathname);
+            
             if (currentCategory && currentCategory !== 'home') {
                 showPage(currentCategory);
             } else {
@@ -925,13 +931,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 'research': 'Fun Research',
                 'industry-news': 'Industry News',
                 'biotech-companies': 'Biotech / Pharma',
-                'wetlab': 'Wet Lab',              // <--- 新增這一行
+                'wetlab': 'Wet Lab',
                 'life-chat': 'Random Thoughts',
                 'data-analysis': 'Data Analysis'
-        };
-        return names[category] || category;
-    }
-    function handleSearch(event) {
+            };
+            return names[category] || category;
+        }
+
+        function handleSearch(event) {
             // 當使用者按下 Enter 鍵時才執行搜尋
             if (event.key === 'Enter') {
                 const query = event.target.value.trim().toLowerCase();
@@ -940,24 +947,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 }
             }
         }
-    function filterByTag(tagName, event) {
+
+        function filterByTag(tagName, event) {
             // 1. 阻止點擊事件冒泡 (避免打開文章)
             if (event) {
                 event.stopPropagation();
             }
 
-            // 2. 執行搜尋 (這會先顯示 "Found X results..." 的預設文字)
+            // 2. 執行搜尋
             performSearch(tagName.toLowerCase());
 
-            // 3. 【關鍵修改】在這裡把文字強制改成 "tag: ..." 格式
+            // 3. 把文字強制改成 "tag: ..." 格式
             const statusText = document.getElementById('search-status');
             if (statusText) {
                 statusText.textContent = `tag: ${tagName}`;
-                // 如果想要讓 "tag:" 也是灰色的，或是想要特殊樣式，可以在這裡加 CSS
-                // statusText.style.color = '#555'; 
             }
 
-            // 4. 更新搜尋框文字 (讓搜尋框顯示這個 tag)
+            // 4. 更新搜尋框文字
             const searchInput = document.getElementById('search-input');
             if (searchInput) {
                 searchInput.value = tagName;
@@ -966,31 +972,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             // 5. 捲動到頂部
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
+
         function performSearch(query) {
-            // 1. 切換到搜尋結果頁面
             showPage('search-results');
             
-            // 2. 收集所有分類的文章到一個陣列中
             let allArticles = [];
             Object.values(postsRegistry).forEach(categoryArticles => {
                 allArticles = allArticles.concat(categoryArticles);
             });
 
-            // 3. 過濾文章 (搜尋標題、摘要、或是標籤)
             const results = allArticles.filter(article => {
                 const titleMatch = article.title.toLowerCase().includes(query);
                 const summaryMatch = article.summary.toLowerCase().includes(query);
-                // 檢查是否有任何一個 tag 符合
                 const tagsMatch = article.tags.some(tag => tag.toLowerCase().includes(query));                
                 return titleMatch || summaryMatch || tagsMatch;
             });
             results.sort((a, b) => new Date(b.date) - new Date(a.date));
 
-            // 4. 更新狀態文字
             const statusText = document.getElementById('search-status');
             statusText.textContent = `Found ${results.length} result(s) for "${query}"`;
 
-            // 5. 顯示結果
             const container = document.getElementById('search-articles-grid');
             
             if (results.length === 0) {
@@ -998,7 +999,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 return;
             }
 
-            // 重用原本的卡片 HTML 生成邏輯
             container.innerHTML = results.map(article => `
                 <div class="article-card" onclick="loadArticle('${article.id}')">
                     <h3 class="article-title">${article.title}</h3>
@@ -1014,10 +1014,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
             `).join('');
         }
+
         document.addEventListener('DOMContentLoaded', async function() {
             await loadPostsRegistry();
             
-            // --- 新增：檢查網址列參數 ---
+            // --- 網頁載入時檢查網址列參數 ---
             const urlParams = new URLSearchParams(window.location.search);
             const postId = urlParams.get('post');
 
@@ -1027,6 +1028,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             } else {
                 // 如果沒有，就正常顯示首頁
                 showPage('home');
+            }
+        });
+
+        // --- 【步驟 3 新增】：監聽瀏覽器的上一頁 / 下一頁動作 ---
+        window.addEventListener("popstate", (event) => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const postId = urlParams.get('post');
+
+            if (postId) {
+                // 如果上一頁是有帶參數的文章頁面，重新渲染該文章
+                loadArticle(postId);
+            } else {
+                // 如果上一頁是首頁或分類頁（沒有參數），就回到該頁面
+                // 這裡簡化處理，直接回到當時紀錄的分類或首頁
+                if (currentCategory && currentCategory !== 'article-view') {
+                    showPage(currentCategory);
+                } else {
+                    showPage('home');
+                }
             }
         });
     </script>
