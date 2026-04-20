@@ -1016,7 +1016,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         }
         document.addEventListener('DOMContentLoaded', async function() {
             await loadPostsRegistry();
-            showPage('home');
+            
+            // --- 新增：檢查網址列參數 ---
+            const urlParams = new URLSearchParams(window.location.search);
+            const postId = urlParams.get('post');
+
+            if (postId) {
+                // 如果網址有帶 ?post=xxx，直接開啟那篇文章
+                loadArticle(postId);
+            } else {
+                // 如果沒有，就正常顯示首頁
+                showPage('home');
+            }
         });
     </script>
 </body>
