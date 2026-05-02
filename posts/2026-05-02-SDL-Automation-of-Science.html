@@ -1,0 +1,372 @@
+<p>I decided to write about this topic after coming across the recent <em>Nature</em> article on self-driving laboratories. At first, I only planned to give a brief introduction, but as I kept digging into the literature and writing, it gradually turned into something much longer than expected. 😂</p>
+
+<p>Since it’s getting a bit lengthy, I’ll probably split it into 3 parts:</p>
+<ol>
+    <li>An overview of the development of SDLs and several major research centres</li>
+    <li>How biotech companies and pharmaceutical firms are building their own SDLs (applications in biologics)</li>
+    <li>Trends: the business models of autonomous laboratories</li>
+</ol>
+
+<h3>🤖 Automation of Science</h3>
+<p><em>Reference video: <a href="https://youtu.be/MjAY9AOPQzw?si=4_4izz_uhwcoLoWU" target="_blank">The Automation of Science</a></em></p>
+
+<p>The arrival of the AI era isn’t just transforming software engineering; biomedicine and drug discovery are experiencing the same shift. The term “autonomous laboratory” (or Self-Driving Lab, SDL) is appearing more frequently in the news.</p>
+
+<p>An autonomous laboratory, also known as a self-driving lab (SDL), builds on a concept that emerged in the late 2000s. At its core is a closed-loop system (Design–Make–Test–Analyze, or DMTA):</p>
+<ul>
+    <li>AI generates hypotheses and designs experiments.</li>
+    <li>Automated robotics execute and test them.</li>
+    <li>Data are fed back to the AI for analysis and optimization.</li>
+    <li>The cycle repeats with the next round of improved experiments.</li>
+</ul>
+
+<p>The pioneer of this field is Dr. Ross D. King, professor at the University of Cambridge (UK) and Chalmers University of Technology (Sweden), widely regarded as a pioneer of “Automation of Science.”</p>
+
+<h3>⚛️ Adam (2009)</h3>
+<p>The first autonomous laboratory in history, Adam, was developed in 2009 by Dr. King in collaboration with a research team at Aberystwyth University. The name is both a reference to the biblical Adam and a tribute to Adam Smith, the 18th-century economist who strongly advocated industrial mechanization.</p>
+
+<p>Adam was primarily applied to functional genomics, using yeast (<em>Saccharomyces cerevisiae</em>) as a model organism. Its goal was to automatically infer and identify genes with unknown functions (estimated at 10–15% of the yeast genome), as well as to identify genes encoding orphan enzymes.</p>
+
+<blockquote style="border-left: 4px solid #0969da; padding-left: 16px; margin: 20px 0; color: #5b6c8d; background-color: #f6f8fa; padding: 12px;">
+    <p style="margin: 0;"><strong>💡 What is an orphan enzyme?</strong><br>
+    An enzyme whose function is known (i.e., the reaction it catalyzes), but whose corresponding encoding gene remains unknown (often annotated as “unknown function” or incorrectly annotated).</p>
+</blockquote>
+
+<p>Adam’s task was essentially to match genes of unknown function with enzymes that lacked identified genes.</p>
+<h4 style="color: #627999;">What did Adam do?</h4>
+<ul>
+    <li>Automatically generated hypotheses from existing biological databases and logical models, predicting which unknown genes might encode specific orphan enzymes.</li>
+    <li>Produced 20 hypotheses for 13 orphan enzymes and designed experiments to test them.</li>
+    <li>Executed experiments, analyzed the data, and iteratively refined its predictions.</li>
+</ul>
+
+<p><strong>Results:</strong> Adam successfully identified and experimentally validated genes for multiple orphan enzymes. The most notable was the enzyme 2-aminoadipate:2-oxoglutarate aminotransferase (2A2OA, EC 2.6.1.39) involved in lysine biosynthesis.</p>
+
+<table style="width:100%; border-collapse: collapse; margin: 20px 0; font-size: 14px;">
+  <thead>
+    <tr style="background-color: #f6f8fa; text-align: left;">
+      <th style="padding: 10px; border: 1px solid #d0d7de;">Orphan Enzyme (EC number)</th>
+      <th style="padding: 10px; border: 1px solid #d0d7de;">Adam’s Hypothesized Genes</th>
+      <th style="padding: 10px; border: 1px solid #d0d7de;">Verified?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="padding: 10px; border: 1px solid #d0d7de;">2-Aminoadipate:2-oxoglutarate aminotransferase (2A2OA, EC 2.6.1.39)</td>
+      <td style="padding: 10px; border: 1px solid #d0d7de;">YGL202W, YJL060W, YER152C</td>
+      <td style="padding: 10px; border: 1px solid #d0d7de;">Yes (confirmed by in vitro enzyme activity)</td>
+    </tr>
+    <tr>
+      <td style="padding: 10px; border: 1px solid #d0d7de;">Glucosamine-6-phosphate deaminase (EC 3.5.99.6)</td>
+      <td style="padding: 10px; border: 1px solid #d0d7de;">YHR163W (SOL3), YGR248W (SOL4), etc.</td>
+      <td style="padding: 10px; border: 1px solid #d0d7de;">Yes</td>
+    </tr>
+    <tr>
+      <td style="padding: 10px; border: 1px solid #d0d7de;">Glutaminase (EC 3.5.1.2)</td>
+      <td style="padding: 10px; border: 1px solid #d0d7de;">YIL033C (BCY1)</td>
+      <td style="padding: 10px; border: 1px solid #d0d7de;">Yes</td>
+    </tr>
+    <tr>
+      <td style="padding: 10px; border: 1px solid #d0d7de;">L-Threonine 3-dehydrogenase (EC 1.1.1.103)</td>
+      <td style="padding: 10px; border: 1px solid #d0d7de;">YDL168W (SFA1)</td>
+      <td style="padding: 10px; border: 1px solid #d0d7de;">Yes</td>
+    </tr>
+    <tr>
+      <td style="padding: 10px; border: 1px solid #d0d7de;">Purine-nucleoside phosphorylase (EC 2.4.2.1)</td>
+      <td style="padding: 10px; border: 1px solid #d0d7de;">YLR209C (PNP1)</td>
+      <td style="padding: 10px; border: 1px solid #d0d7de;">Yes</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>⚛️ Eve (2015 → 2018)</h3>
+<p>In 2015, King collaborated with a research team at Chalmers University of Technology in Gothenburg, Sweden, to evolve Adam into <strong>Eve</strong>, designed to automate early-stage drug discovery.</p>
+
+<p>The 2018 study demonstrated Eve’s capabilities in screening ~1,600 compounds from the Johns Hopkins Clinical Compound Library. By modeling structure–activity relationships, it predicted which compounds were worth testing, then designed and executed experiments to validate them.</p>
+
+<p>One notable finding was that triclosan, a common antimicrobial compound used in toothpastes and soaps, can inhibit the enzyme DHFR (dihydrofolate reductase), which is essential for the survival of the malaria parasite (<em>Plasmodium falciparum</em>) during its dormant phase in the liver.</p>
+
+<h4 style="color: #627999;">Eve’s workflow:</h4>
+<ol>
+    <li><strong>In silico pre-screening:</strong> ML models rapidly predicted the most promising compounds.</li>
+    <li><strong>Experimental execution:</strong> Selected compounds are tested in cultured cells containing malaria parasites, with automated systems measuring inhibition effects.</li>
+    <li><strong>AI learning:</strong> Experimental results are fed back into the system to identify structural or physicochemical features associated with activity.</li>
+    <li><strong>Optimization:</strong> Algorithms such as Bayesian optimization predict promising untested compounds and schedule the next experiments.</li>
+    <li><strong>Iterative closed loop:</strong> The cycle repeated until potent candidates were identified.</li>
+</ol>
+
+<p>Eve shifted the focus from pure discovery to optimization and demonstrated clear efficiency gains over traditional screening.</p>
+
+<h3>⚛️ Genesis (in development)</h3>
+<p>In 2019, Ross King was appointed as a Wallenberg Chair under Sweden’s WASP (Wallenberg AI, Autonomous Systems and Software Program), officially launching the third-generation AI scientist, <strong>Genesis</strong>.</p>
+
+<p>The goal is a true L4-level autonomous system capable of fully automating eukaryotic systems biology research in yeast. Once complete, Genesis will autonomously initiate and run up to 1,000 experiments per day.</p>
+
+<table style="width:100%; border-collapse: collapse; margin: 20px 0; font-size: 14px;">
+  <thead>
+    <tr style="background-color: #f6f8fa; text-align: left;">
+      <th style="padding: 10px; border: 1px solid #d0d7de;">Project</th>
+      <th style="padding: 10px; border: 1px solid #d0d7de;">Adam</th>
+      <th style="padding: 10px; border: 1px solid #d0d7de;">Eve</th>
+      <th style="padding: 10px; border: 1px solid #d0d7de;">Genesis (in development)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="padding: 10px; border: 1px solid #d0d7de;"><strong>Autonomy level</strong></td>
+      <td style="padding: 10px; border: 1px solid #d0d7de;">Level 2–3 (first proof of autonomous discovery)</td>
+      <td style="padding: 10px; border: 1px solid #d0d7de;">Level 3 (optimization-focused)</td>
+      <td style="padding: 10px; border: 1px solid #d0d7de;">Target: Level 4 (highly autonomous systems biology modeling)</td>
+    </tr>
+    <tr>
+      <td style="padding: 10px; border: 1px solid #d0d7de;"><strong>Application domain</strong></td>
+      <td style="padding: 10px; border: 1px solid #d0d7de;">Yeast functional genomics</td>
+      <td style="padding: 10px; border: 1px solid #d0d7de;">Early-stage drug discovery</td>
+      <td style="padding: 10px; border: 1px solid #d0d7de;">Eukaryotic systems biology</td>
+    </tr>
+    <tr>
+      <td style="padding: 10px; border: 1px solid #d0d7de;"><strong>AI focus</strong></td>
+      <td style="padding: 10px; border: 1px solid #d0d7de;">Logical reasoning + hypothesis generation</td>
+      <td style="padding: 10px; border: 1px solid #d0d7de;">Bayesian optimization + compound selection</td>
+      <td style="padding: 10px; border: 1px solid #d0d7de;">Large-scale active learning + data integration</td>
+    </tr>
+    <tr>
+      <td style="padding: 10px; border: 1px solid #d0d7de;"><strong>Key milestone</strong></td>
+      <td style="padding: 10px; border: 1px solid #d0d7de;">First SDL to autonomously generate and validate hypotheses</td>
+      <td style="padding: 10px; border: 1px solid #d0d7de;">Optimized drug screening</td>
+      <td style="padding: 10px; border: 1px solid #d0d7de;">Prove machines can fully automate complex systems science</td>
+    </tr>
+    <tr>
+      <td style="padding: 10px; border: 1px solid #d0d7de;"><strong>Major achievement</strong></td>
+      <td style="padding: 10px; border: 1px solid #d0d7de;">Identified genes for several orphan enzymes (including lysine-biosynthesis 2A2OA)</td>
+      <td style="padding: 10px; border: 1px solid #d0d7de;">Discovered that triclosan inhibits DHFR in malaria parasites</td>
+      <td style="padding: 10px; border: 1px solid #d0d7de;">Not yet fully online</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 style="color: #627999;">Summary:</h4>
+<ul>
+    <li><strong>Adam:</strong> The first SDL capable of generating and experimentally validating hypotheses.</li>
+    <li><strong>Eve:</strong> Shifted from pure scientific discovery to industrial application, focusing on optimization and significantly improving efficiency in drug screening.</li>
+    <li><strong>Genesis:</strong> A more compact system (about one-fifth the size of Eve), aiming to autonomously generate hypotheses, design experiments, execute them, and analyze results to build systems biology models of interactions among genes, proteins, and small molecules.</li>
+</ul>
+
+<p>King’s broader vision is to demonstrate that, in specific domains, AI scientists can conduct research faster and more cost-effectively than humans.</p>
+
+<div class="image-container">
+    <img src="assets/images/20250502/Automation-of-Science.png" alt="Automation of Science">
+    <p class="image-caption">The evolution of AI scientists from Adam to Genesis</p>
+</div>
+
+<p><em>Dr. Ross King’s website: <a href="https://www.automationof.science/home" target="_blank">https://www.automationof.science/home</a></em></p>
+
+<hr>
+
+<h3>⚙️ Self-Driving Labs (SDLs)</h3>
+<p>In the previous section, we mentioned that Ross King’s team aims to develop Genesis into an L4 autonomous laboratory. But what exactly does L4 mean?</p>
+
+<p>In 2020, Beal et al. proposed a classification framework for SDLs in Molecular Systems Biology, defining six levels of autonomy (L0–L5). At L0, laboratories are entirely human-operated, while higher levels progressively shift the balance from human intelligence to artificial intelligence.</p>
+
+<p>In 2026, Jason Kelly, co-founder and CEO of Ginkgo Bioworks, introduced an industry-oriented framework called LoLA (Levels of Laboratory Autonomy).</p>
+
+<table style="width:100%; border-collapse: collapse; margin: 20px 0; font-size: 14px;">
+  <thead>
+    <tr style="background-color: #f6f8fa; text-align: left;">
+      <th style="padding: 10px; border: 1px solid #d0d7de;">Level</th>
+      <th style="padding: 10px; border: 1px solid #d0d7de;">Beal et al. (2020)</th>
+      <th style="padding: 10px; border: 1px solid #d0d7de;">LoLA</th>
+      <th style="padding: 10px; border: 1px solid #d0d7de;">Closed Loop</th>
+      <th style="padding: 10px; border: 1px solid #d0d7de;">Characteristics</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="padding: 10px; border: 1px solid #d0d7de;"><strong>L0</strong></td>
+      <td style="padding: 10px; border: 1px solid #d0d7de;">No Autonomy</td>
+      <td style="padding: 10px; border: 1px solid #d0d7de;">No Autonomy</td>
+      <td style="padding: 10px; border: 1px solid #d0d7de;">No (open-loop)</td>
+      <td style="padding: 10px; border: 1px solid #d0d7de;">Fully manual operation</td>
+    </tr>
+    <tr>
+      <td style="padding: 10px; border: 1px solid #d0d7de;"><strong>L1</strong></td>
+      <td style="padding: 10px; border: 1px solid #d0d7de;">Investigator Assistance</td>
+      <td style="padding: 10px; border: 1px solid #d0d7de;">Narrow Automation</td>
+      <td style="padding: 10px; border: 1px solid #d0d7de;">No (open-loop)</td>
+      <td style="padding: 10px; border: 1px solid #d0d7de;">Machines assist with specific tasks, but only one experiment at a time (e.g., liquid handlers)</td>
+    </tr>
+    <tr>
+      <td style="padding: 10px; border: 1px solid #d0d7de;"><strong>L2</strong></td>
+      <td style="padding: 10px; border: 1px solid #d0d7de;">Partial Autonomy</td>
+      <td style="padding: 10px; border: 1px solid #d0d7de;">General Automation</td>
+      <td style="padding: 10px; border: 1px solid #d0d7de;">Partial / task-specific</td>
+      <td style="padding: 10px; border: 1px solid #d0d7de;">Partial automation; systems can execute multiple different experiments without human intervention</td>
+    </tr>
+    <tr>
+      <td style="padding: 10px; border: 1px solid #d0d7de;"><strong>L3</strong></td>
+      <td style="padding: 10px; border: 1px solid #d0d7de;">Conditional Autonomy</td>
+      <td style="padding: 10px; border: 1px solid #d0d7de;">Conditional Autonomy</td>
+      <td style="padding: 10px; border: 1px solid #d0d7de;">Yes (full closed-loop)</td>
+      <td style="padding: 10px; border: 1px solid #d0d7de;">Autonomous under defined conditions; L3 is the minimum threshold for a true self-driving lab</td>
+    </tr>
+    <tr>
+      <td style="padding: 10px; border: 1px solid #d0d7de;"><strong>L4</strong></td>
+      <td style="padding: 10px; border: 1px solid #d0d7de;">Highly Autonomous Investigation</td>
+      <td style="padding: 10px; border: 1px solid #d0d7de;">High Autonomy</td>
+      <td style="padding: 10px; border: 1px solid #d0d7de;">Yes (full closed-loop)</td>
+      <td style="padding: 10px; border: 1px solid #d0d7de;">Highly autonomous; AI agents can read and analyze literature, design experiments, and delegate execution to machines. Humans mainly set goals and interpret results</td>
+    </tr>
+    <tr>
+      <td style="padding: 10px; border: 1px solid #d0d7de;"><strong>L5</strong></td>
+      <td style="padding: 10px; border: 1px solid #d0d7de;">Machine Investigator</td>
+      <td style="padding: 10px; border: 1px solid #d0d7de;">Full Autonomy</td>
+      <td style="padding: 10px; border: 1px solid #d0d7de;">Yes (full closed-loop)</td>
+      <td style="padding: 10px; border: 1px solid #d0d7de;">Fully autonomous AI scientists; humans act primarily as supervisors</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="image-container">
+    <img src="assets/images/20250502/LoLA_EN.png" alt="Levels of Laboratory Autonomy (LoLA)">
+    <p class="image-caption">Levels of Laboratory Autonomy (LoLA)</p>
+</div>
+
+<p>Today, several systems are considered to have reached at least L3 autonomy, including Ginkgo’s Nebula + GPT-5, A-Lab, Genesis, and LabGenius EVA.</p>
+
+<ul class="references-list">
+    <li>Beal et al. (2020) → <a href="#" target="_blank">Levels of autonomy in synthetic biology engineering</a></li>
+    <li>Kelly’s LoLA framework → discussed in his 2026 talks and Ginkgo announcements.</li>
+</ul>
+
+<hr>
+
+<h3>🌐 Berkeley Lab: A-Lab</h3>
+<p>The A-Lab is an autonomous laboratory platform developed at Lawrence Berkeley National Laboratory, operational since 2023. It is designed to accelerate the synthesis and discovery of inorganic materials.</p>
+
+<p>A-Lab forms a complete closed-loop system by integrating:</p>
+<ul>
+    <li><strong>AI planning layer:</strong> Selects candidate materials predicted to be stable using datasets such as the Materials Project and DeepMind outputs, and learns synthesis routes from literature. The AI can propose up to 5 synthesis pathways per target and continuously optimizes them via active learning.</li>
+    <li><strong>Robotic execution layer:</strong> Includes 3 automated workstations for handling powder dosing, high-temperature synthesis, and product characterization.</li>
+    <li><strong>Data analysis & iteration:</strong> AI interprets experimental results in real time, determines target yield, and decides on the next experiment.</li>
+</ul>
+
+<p>This system operates with minimal human intervention and represents the first fully autonomous SDL for solid-state synthesis using inorganic powders.</p>
+
+<p>Published in <em>Nature</em> in 2023, the group demonstrated A-Lab’s ability to close the gap between computational prediction and experimental realization. Its integrated AI–robotics loop can operate 24/7, completing the full cycle from design to optimization, and is considered a benchmark for achieving 10–100× acceleration in materials discovery.</p>
+
+<h4 style="color: #627999;">Key results:</h4>
+<ul>
+    <li>Over 17 days of continuous autonomous operation, A-Lab performed 353 experiments (~21 per day).</li>
+    <li>Successfully synthesized 36 out of 57 target compounds (63% success rate), spanning diverse oxides, phosphates, and other inorganic crystals.</li>
+</ul>
+
+<ul class="references-list">
+    <li>News: <a href="#" target="_blank">Meet the Autonomous Lab of the Future</a></li>
+    <li>Paper: Szymanski et al. (2023) <em>Nature</em> DOI: <a href="https://doi.org/10.1038/s41586-023-06734-w" target="_blank">10.1038/s41586-023-06734-w</a></li>
+</ul>
+
+<h3>🌐 University of Toronto: Acceleration Consortium</h3>
+<p>Led by chemistry professor Alán Aspuru-Guzik, the Acceleration Consortium (founded 2021) is one of the world’s leading centres for SDL research and application.</p>
+
+<p>Traditional materials development often takes 20+ years and costs >$100 million. AC aims to reduce this to ~1 year and ~$1 million using self-driving labs, accelerating the development of sustainable materials and molecules, including drugs, biodegradable plastics, and clean energy technologies.</p>
+
+<p>AC currently operates 6 SDLs at the University of Toronto (SDL1–6) and collaborates with UBC in Vancouver on SDL7, while also connecting with more than 30 SDLs worldwide.</p>
+
+<h4 style="color: #627999;">SDL specialties:</h4>
+<ul>
+    <li><strong>SDL1:</strong> Inorganic materials</li>
+    <li><strong>SDL2:</strong> Organic small molecules</li>
+    <li><strong>SDL3:</strong> Medicinal chemistry - for chemical probe development and drug discovery</li>
+    <li><strong>SDL4:</strong> Polymers</li>
+    <li><strong>SDL5:</strong> Formulations - materials comprising combinatorial mixing; characterization of structure and function, and application testing across personal care, healthcare, and more</li>
+    <li><strong>SDL6:</strong> Human organ mimicry - next-generation human tissue models and novel therapeutics</li>
+    <li><strong>SDL7:</strong> Scale-up - bridging molecular and materials discovery with scale-up and translation</li>
+</ul>
+
+<p>Together, these SDLs form an end-to-end closed loop, from molecular design to synthesis, with SDL7 enabling scale-up, shortening the path from early discovery to real-world deployment.</p>
+
+<p>Beyond academia, AC actively commercializes SDL technologies through startups and industry partnerships.</p>
+
+<h4 style="color: #627999;">Industry collaborations:</h4>
+<ul>
+    <li><strong>BASF (May 2025):</strong> Joint SDLs for sustainable materials in agriculture, pharmaceuticals, and coatings.</li>
+    <li><strong>Unilever (Sept 2025):</strong> Collaborating on SDLs for optimizing submicron emulsions in personal-care products (shower gels, lotions, etc.).</li>
+    <li><strong>Bristol Myers Squibb:</strong> Developing autonomous liquid–liquid extraction (LLE) platforms for chemical purification.</li>
+</ul>
+
+<p>AC also collaborates with Vancouver-based startup Telescope Innovations. Several commercial SDLs have already been deployed to Pfizer and the Korean Pharmaceutical and Biopharmaceutical Manufacturers Association (KPBMA).</p>
+<p><em>Website: <a href="#" target="_blank">Acceleration Consortium Labs & Facilities</a></em></p>
+
+<h3>🌐 University of Toronto: LUMI-lab</h3>
+<p>LUMI-lab is another fully closed-loop DMTA autonomous platform developed by a U of T team. It focuses on designing ionizable lipids and lipid nanoparticles (LNPs) for mRNA delivery. The system trains on over 28 million 3D molecular structures and continuously improves through iterative closed-loop learning:</p>
+
+<p><em>Model prediction → LNP synthesis & formulation → high-throughput in vitro screening → feedback and model optimization</em></p>
+
+<h4 style="color: #627999;">Its three-stage training pipeline includes:</h4>
+<ul>
+    <li><strong>Self-supervised molecular pretraining:</strong> Using 13 million molecular structures with 3D conformations</li>
+    <li><strong>Continual pretraining with lipids:</strong> Further training on 15 million lipid molecules</li>
+    <li><strong>Closed-loop active learning:</strong> Iterative optimization across 10 experimental cycles</li>
+</ul>
+
+<p>In their 2026 <em>Cell</em> publication, LUMI-lab evaluated 1,781 LNPs after 10 iterations. More than 50% of candidates showed high transfection efficiency. Notably, one candidate (LUMI-6) outperformed Moderna’s SM-102 LNP in mouse models.</p>
+
+<p>In CRISPR-Cas9 lung gene editing experiments, LUMI-6 achieved a 20.3% editing efficiency in lung epithelial cells.</p>
+
+<p>These results demonstrate that even with minimal initial data, closed-loop active learning and optimization can accelerate next-generation RNA delivery development.</p>
+
+<ul class="references-list">
+    <li>News: <a href="#" target="_blank">Self-driving LUMI-lab system combines AI and robotics…</a></li>
+    <li>Paper: Xu, Cui, Pang et al. (2026) <em>Cell</em> DOI: <a href="https://doi.org/10.1016/j.cell.2026.01.012" target="_blank">10.1016/j.cell.2026.01.012</a></li>
+</ul>
+
+<h3>🌐 Duke University: SAMPLE Platform</h3>
+<p>The SAMPLE (Self-driving Autonomous Machines for Protein Landscape Exploration) platform, developed by the Romero Lab (originally at the University of Wisconsin, now at Duke University), is an AI-driven system for protein engineering.</p>
+
+<p>It autonomously learns relationships between protein sequences and function, designs new variants, and integrates automated experimentation and analysis into iterative cycles:<br>
+<em>Design → Test → Learn (~9–10 hours per cycle)</em></p>
+
+<p>In their 2024 <em>Nature Chemical Engineering</em> study, SAMPLE was integrated with Strateos Cloud Lab infrastructure to form a full SDL, significantly accelerating protein optimization.</p>
+
+<h4 style="color: #627999;">Compared to traditional manual workflows:</h4>
+<table style="width:100%; border-collapse: collapse; margin: 20px 0; font-size: 14px;">
+  <thead>
+    <tr style="background-color: #f6f8fa; text-align: left;">
+      <th style="padding: 10px; border: 1px solid #d0d7de;">Metric</th>
+      <th style="padding: 10px; border: 1px solid #d0d7de;">SAMPLE Platform</th>
+      <th style="padding: 10px; border: 1px solid #d0d7de;">Human Researchers (estimated)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="padding: 10px; border: 1px solid #d0d7de;"><strong>Time to complete 20 cycles</strong></td>
+      <td style="padding: 10px; border: 1px solid #d0d7de;">1–2 weeks (continuous operation)</td>
+      <td style="padding: 10px; border: 1px solid #d0d7de;">Planned: ~2 months<br>Actual: ~6–12 months</td>
+    </tr>
+    <tr>
+      <td style="padding: 10px; border: 1px solid #d0d7de;"><strong>Cost</strong></td>
+      <td style="padding: 10px; border: 1px solid #d0d7de;">~$5,200 (20 cycles)</td>
+      <td style="padding: 10px; border: 1px solid #d0d7de;">High (labour + overhead)</td>
+    </tr>
+    <tr>
+      <td style="padding: 10px; border: 1px solid #d0d7de;"><strong>Data quality</strong></td>
+      <td style="padding: 10px; border: 1px solid #d0d7de;">Highly reproducible, full metadata tracking</td>
+      <td style="padding: 10px; border: 1px solid #d0d7de;">More variable, less reproducible</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><em>Lab website: <a href="#" target="_blank">Duke | Romero Lab</a></em></p>
+
+<hr>
+
+<h3>🏦 Government Investment</h3>
+<p>SDLs are already being deployed across multiple domains, and governments worldwide are investing heavily in their development.</p>
+
+<ul>
+    <li><strong>United States:</strong> The Department of Energy (DOE) supports autonomous labs in energy and materials research (e.g., PNNL). In April, ARPA-E announced $34 million in funding for 12 projects combining AI with autonomous labs.</li>
+    <li><strong>Canada:</strong> The University of Toronto’s Acceleration Consortium received CAD $200 million (~USD $146 million) from the Canada First Research Excellence Fund (CFREF) in 2023. This is the largest single grant ever awarded to a Canadian university.</li>
+    <li><strong>United Kingdom:</strong> ARIA launched its AI Scientist program in early 2026, investing £6 million across 12 projects. A team at King’s College London is one of them, receiving £500,000 to develop SDLs for converting agro-food by-products into high-quality protein.</li>
+    <li><strong>South Korea:</strong> SDLs have been designated a national strategic priority, with a goal of deploying 500 autonomous labs by 2030. The KPBMA (Korea Pharmaceutical and Bio-Pharma Manufacturers Association) has already installed the country’s first SDL for drug development as a national AI-driven R&D training centre.</li>
+</ul>
+<br>
