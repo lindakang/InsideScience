@@ -69,6 +69,16 @@
       "summary": "An extensive overview of the evolution of Self-Driving Labs (SDLs) from Adam to Genesis, levels of laboratory autonomy, and major global research centres accelerating scientific discovery.",
       "readTime": "12 min read",
       "filename": "2026-05-02-SDL-Automation-of-Science.html"
+    },
+    {
+      "id": "2026-05-06-antibody-companies-building-their-own-sdls",
+      "title": "Self-Driving-Labs (SDLs) - Companies Building Antibody SDLs (2/3)",
+      "date": "2026-05-06",
+      "category": "biotech-companies",
+      "tags": ["Self-Driving Labs", "Antibody Discovery", "Eli Lilly", "LabGenius", "BigHat", "AbSci", "Insitro", "NVIDIA", "OpenProtein.AI", "Boehringer Ingelheim"],
+      "summary": "An exploration of how biotech startups and major pharma companies like Eli Lilly are building and integrating closed-loop Self-Driving Labs specifically for complex biologics and antibody discovery.",
+      "readTime": "8 min read",
+      "filename": "2026-05-06-Antibody-Companies-Building-Their-Own-SDLs.html"
     }
   ],
   "biotech-companies": [
