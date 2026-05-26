@@ -2,6 +2,8 @@
 
 Click [**Use this template**](https://github.com/mmistakes/mm-github-pages-starter/generate) button above for the quickest method of getting started with the [Minimal Mistakes Jekyll theme](https://github.com/mmistakes/minimal-mistakes).
 
+[![Statcounter](https://c.statcounter.com/13255876/0/683bda2e/0/)](https://statcounter.com/)
+
 Contains basic configuration to get you a site with:
 
 - Sample posts.
