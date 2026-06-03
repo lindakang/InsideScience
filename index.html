@@ -1025,6 +1025,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         document.addEventListener('DOMContentLoaded', async function() {
             await loadPostsRegistry();
             
+            // 👇 新增這一行來執行最新文章的渲染 👇
+            renderLatestArticles();
+            
             // --- 網頁載入時檢查網址列參數 ---
             const urlParams = new URLSearchParams(window.location.search);
             const postId = urlParams.get('post');
@@ -1056,6 +1059,45 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 }
             }
         });
+        // --- 新增：渲染首頁最新三篇文章 ---
+        function renderLatestArticles() {
+            let allArticles = [];
+            
+            // 1. 將所有分類的文章收集到同一個陣列
+            Object.values(postsRegistry).forEach(categoryArticles => {
+                allArticles = allArticles.concat(categoryArticles);
+            });
+
+            // 2. 依照日期由新到舊排序
+            allArticles.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+            // 3. 只取前 3 篇
+            const latestArticles = allArticles.slice(0, 3);
+
+            const container = document.getElementById('latest-articles-grid');
+            if (!container) return;
+
+            if (latestArticles.length === 0) {
+                container.innerHTML = '<p style="color: #656d76;">No articles available yet.</p>';
+                return;
+            }
+
+            // 4. 生成卡片 HTML 並插入
+            container.innerHTML = latestArticles.map(article => `
+                <div class="article-card" onclick="loadArticle('${article.id}')">
+                    <h3 class="article-title">${article.title}</h3>
+                    <div class="article-meta">
+                        <span>${article.date}</span>
+                        <span>${getCategoryDisplayName(article.category)}</span>
+                        ${article.readTime ? `<span>${article.readTime}</span>` : ''}
+                    </div>
+                    <p class="article-summary">${article.summary}</p>
+                    <div class="article-tags">
+                        ${article.tags.map(tag => `<span class="tag" onclick="filterByTag('${tag}', event)">${tag}</span>`).join('')}
+                    </div>
+                </div>
+            `).join('');
+        }
     </script>
 </body>
 </html>
